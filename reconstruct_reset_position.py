@@ -119,6 +119,7 @@ def remove_old_bones(bind_act):
     scene = bpy.context.scene
     obj = bpy.context.active_object
     bpy.ops.object.mode_set(mode='EDIT')
+    obj.animation_data.action = None
     for bone in obj.data.edit_bones:
         bose_bone = obj.pose.bones[bone.name]
         if bose_bone.get('original_name'):
