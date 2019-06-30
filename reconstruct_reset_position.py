@@ -166,8 +166,8 @@ def reconstruct_bind_pose(obj, bind_act):
     bpy.context.scene.frame_set(0)
 
 
-class ReconstructBesetPosition(bpy.types.Operator):
-    bl_idname = 'xray_import.level'
+class ReconstructResetPosition(bpy.types.Operator):
+    bl_idname = 'pose.reconstruct_reset_pose'
     bl_label = 'Reconstruct Reset Position'
     bl_options = {'REGISTER', 'UNDO'}
 
@@ -180,15 +180,15 @@ class ReconstructBesetPosition(bpy.types.Operator):
 
 def draw_function(self, context):
     lay = self.layout
-    lay.operator('xray_import.level')
+    lay.operator('pose.reconstruct_reset_pose')
 
 
 def register():
-    bpy.utils.register_class(ReconstructBesetPosition)
+    bpy.utils.register_class(ReconstructResetPosition)
     bpy.types.VIEW3D_PT_tools_posemode.append(draw_function)
 
 
 def unregister():
     bpy.types.VIEW3D_PT_tools_posemode.remove(draw_function)
-    bpy.utils.unregister_class(ReconstructBesetPosition)
+    bpy.utils.unregister_class(ReconstructResetPosition)
     
